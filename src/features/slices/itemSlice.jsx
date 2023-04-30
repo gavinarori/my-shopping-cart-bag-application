@@ -1,4 +1,4 @@
-import {createSlice} from 'react-redux'
+import { createSlice } from "@reduxjs/toolkit";
 import { allData } from '../../assests/data/chunkData'
 
 const itemSlice = createSlice({
@@ -117,4 +117,4 @@ const itemSlice = createSlice({
 })
 
 export const {filterItems,singleItem,filterByGender,sortBySize,sortByColor,sortByPrice} = itemSlice.actions
-export default itemSlice.reducers
+export default itemSlice.reducer

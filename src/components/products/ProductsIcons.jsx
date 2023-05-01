@@ -31,6 +31,7 @@ const dispatch = useDispatch();
   const handleLike = ()=>{
     setLike(!like)
   }
+  
 
   const handleIconToggle = () => {
     setShowIcons(!showIcons);
@@ -55,7 +56,7 @@ const dispatch = useDispatch();
   return (
     <div>
       <Card
-        className="w-96 relative"
+        className="w-96 relative  dark:bg-gray-900 h-full w-full"
         onMouseEnter={handleIconToggle}
         onMouseLeave={handleIconToggle}
       >
@@ -114,24 +115,24 @@ const dispatch = useDispatch();
             </div>
         </div>)}
     </CardHeader>
-    <CardBody className="text-center">
-          <Typography variant="h4" color="blue-gray" className="mb-2">
+    <CardBody className="text-center  dark:bg-gray-900 h-full w-full">
+          <Typography variant="h4" color="blue-gray" className="mb-2 dark:text-white">
             {name}
           </Typography>
-          <Typography color="gray" className="font-medium" textGradient>
+          <Typography color="gray" className="font-medium dark:text-white" textGradient>
             {text}
           </Typography>
           <div className="flex justify-between items-center pt-4">
             <Typography color="red" className="font-medium" textGradient>
               Size left:{" "}
-              <span className="text-gray-400 text-base font-extralight">
+              <span className="text-gray-400 text-base font-extralight dark:text-white">
                 {defaultSize}
               </span>
             </Typography>
-            <Typography color="gray" className="font-medium" textGradient>
+            <Typography color="gray" className="font-medium dark:text-white" textGradient>
               Color:{" "}
               <span
-                className="px-2 rounded-full ml-2"
+                className="px-2 rounded-full ml-2 dark:text-white"
                 style={{ backgroundColor: defaultColor }}
               ></span>
             </Typography>

@@ -1,9 +1,26 @@
-import React, { useState } from "react";
+import React, { useState , useEffect} from "react";
 import Cart from "../cart/cart";
+import Toggle from "../themes/toggle";
 import { useSelector } from "react-redux";
 
 const Navbar = () => {
   const totalAmount = useSelector((state) => state.cart.totalAmount);
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  useEffect(() => {
+    const root = window.document.documentElement;
+
+    if (isDarkMode) {
+      root.classList.add("dark");
+    } else {
+      root.classList.remove("dark");
+    }
+  }, [isDarkMode]);
+
+  const handleThemeToggle = () => {
+    setIsDarkMode(!isDarkMode);
+  };
+
 
   const [open, setOpen] = useState(false);
   const handleOpen = () => {
@@ -12,19 +29,24 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="flex justify-around items-center">
+      <div className="flex justify-around items-center  dark:bg-gray-900 h-full w-full">
         <div>
-          <h1 className="h-28 w-full">HOME SHOP.</h1>
+        <h2 className="text-2xl font-bold leading-7 text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight dark:text-white">
+          HOME SHOP.
+        </h2>
         </div>
         <div className="flex flex-row items-center">
-          <div className="flex flex-row items-center">
+        <div className="inline-flex items-center rounded-md bg-white px-3 py-2 mx-2 text-sm font-semibold text-white  hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ">
+      <Toggle onToggle={handleThemeToggle} isDarkMode={isDarkMode}/>
+      </div>
+          <div className="flex flex-row items-center mx-2" >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
               strokeWidth="2"
               stroke="#000"
-              className="w-6 h-6"
+              className="w-6 h-6 "
             >
               <path
                 strokeLinecap="round"
@@ -32,7 +54,7 @@ const Navbar = () => {
                 d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"
               />
             </svg>
-            <p className=" font-inter text-base font-medium tracking-normal leading-none text-center mr-2">
+            <p className=" font-inter text-base font-medium tracking-normal leading-none text-center mr-2 dark:text-white">
               Whish List
             </p>
           </div>
@@ -61,17 +83,18 @@ const Navbar = () => {
               </svg>
             )}
 
-            <p className=" font-inter text-base font-medium tracking-normal leading-none text-center ">
+            <p className=" font-inter text-base font-medium tracking-normal leading-none text-center dark:text-white">
               Shopping bag
             </p>
             <div>
               {open && <Cart openModal={open} setOpen={setOpen}></Cart>}
             </div>
-            
+           
           </div>
         </div>
       </div>
-     
+      
+      
     </>
   );
 };

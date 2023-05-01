@@ -38,12 +38,12 @@ import jackect10 from '../images/Jacket 10.jpg'
 export const SliderData = [
     {
         id: "0",
-        img: sliderShoes1,
+        img: sliderShoes0,
         text: "Our shoes pin us to the world",
       },
       {
         id: "1",
-        img: sliderShoes0,
+        img: sliderShoes1,
         text: "Nice shoes are my only addiction",
       },
       {

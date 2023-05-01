@@ -25,7 +25,7 @@ const itemSlice = createSlice({
                 return err;
               }
         },
-        singleItem(state,action){
+        singleItems(state,action){
             try{
                 const singleproduct = state.filteredItems.filter((item)=> item.id === action.payload)
                 state.singleItems = singleproduct
@@ -56,7 +56,7 @@ const itemSlice = createSlice({
             try{
                 const bySize = state.filteredItems.filter((items)=> items.size.includes(action.payload))
                 state.error =false
-                state.filterItems = bySize
+                state.filteredItems = bySize
                 if(bySize <= 0){
                     state.error = true
                     state.filteredItems=[]
@@ -116,5 +116,5 @@ const itemSlice = createSlice({
     }
 })
 
-export const {filterItems,singleItem,filterByGender,sortBySize,sortByColor,sortByPrice} = itemSlice.actions
+export const {filterItems,singleItems,filterByGender,sortBySize,sortByColor,sortByPrice} = itemSlice.actions
 export default itemSlice.reducer

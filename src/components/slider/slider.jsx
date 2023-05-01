@@ -12,7 +12,7 @@ const Slider = () => {
   const dispatch = useDispatch();
 
   return (
-    <div className="relative pb-4">
+    <div className="relative pb-4  dark:bg-gray-900 h-full w-full">
       <div>
         {SliderData.map((item) => {
           return (

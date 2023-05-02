@@ -44,7 +44,7 @@ const FilteredItems = () => {
                   <div key={index}>
                     <Button
                       color="gray"
-                      size="lg"
+                      size={window.innerWidth < 640 ? "sm" : "lg"}
                       variant="outlined"
                       ripple={true}
                       className="text-black hover:bg-gray-300 duration-300 ease-in-out mr-4  dark:text-white"
@@ -57,7 +57,7 @@ const FilteredItems = () => {
               })}
               <Button
                 color="gray"
-                size="lg"
+                size={window.innerWidth < 640 ? "sm" : "lg"}
                 variant="outlined"
                 ripple={true}
                 className="text-black hover:bg-gray-300 duration-300 ease-in-out mr-4  dark:text-white"
@@ -69,7 +69,7 @@ const FilteredItems = () => {
                 <MenuHandler>
                   <Button
                     color="gray"
-                    size="lg"
+                    size={window.innerWidth < 640 ? "sm" : "lg"}
                     variant="outlined"
                     ripple={true}
                     className="text-black hover:bg-gray-300 duration-300 ease-in-out mr-4 dark:text-white"
@@ -96,7 +96,7 @@ const FilteredItems = () => {
                   <Button
                     disabled={type === "" || type === "Shoes"}
                     color="gray"
-                    size="lg"
+                    size={window.innerWidth < 640 ? "sm" : "lg"}
                     variant="outlined"
                     ripple={true}
                     className="text-black hover:bg-gray-300 duration-300 ease-in-out mr-4 dark:text-white"
@@ -121,7 +121,7 @@ const FilteredItems = () => {
             <div className="pr-14">
               <Button
                 color="gray"
-                size="lg"
+                size={window.innerWidth < 640 ? "sm" : "lg"}
                 variant="outlined"
                 ripple={true}
                 className="text-black hover:bg-gray-300 duration-300 ease-in-out mr-4  dark:text-white"
@@ -135,7 +135,8 @@ const FilteredItems = () => {
         {error ? (
           <Error></Error>
         ) : (
-          <div className="grid grid-cols-4 justify-items-center py-8 gap-12 ">
+          <div className="grid grid-cols-4 gap-12 justify-items-center py-8 mx-auto max-w-screen-xl sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+        
             {products
               .filter((product) => product.type === type)
               .map((product, index) => {

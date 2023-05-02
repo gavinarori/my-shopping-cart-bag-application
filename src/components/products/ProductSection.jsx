@@ -5,12 +5,12 @@ import ProductsIcons from "./ProductsIcons";
 const ProductSection = () => {
   return (
     <div>
-      <div className="bg-black p-2 w-[50%] mx-auto rounded-md  dark:bg-gray-900 h-full w-full">
+      <div className="bg-black p-2 w-full mx-auto rounded-md  dark:bg-gray-900 h-full ">
       <h2 className="text-white text-center text-lg font-inter font-bold tracking-normal leading-none dark:text-white">
           T-Shirt SALE 
         </h2>
       </div>
-      <div className="grid grid-cols-3 justify-items-center py-8 gap-4 mx-auto max-w-7xl  dark:bg-gray-900 h-full w-full">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center py-8 gap-4 mx-auto max-w-7xl dark:bg-gray-900 h-full w-full">
         {allData.slice(0, 6).map((product, index) => {
           return (
             <div key={index}>

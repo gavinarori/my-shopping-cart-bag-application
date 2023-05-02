@@ -33,10 +33,10 @@ const Slider = () => {
                   ></img>
                 )}
               </div>
-              <div className="absolute top-44 mx-auto inset-x-1/4">
-                <p className="text-white text-4xl font-inter font-bold tracking-normal leading-none">
-                  {parseInt(item.id) === slideActions && item.text}
-                </p>
+              <div className="absolute top-44 mx-auto inset-x-1/4 hidden md:block">
+                    <p className="text-white text-4xl font-inter font-bold tracking-normal leading-none">
+                        {parseInt(item.id) === slideActions && item.text}
+                   </p>
               </div>
             </div>
           );

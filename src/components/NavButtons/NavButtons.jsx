@@ -23,7 +23,7 @@ const NavigateButtons = () => {
               <Link to={"/filteredItems/" + button}>
                 <Button
                   color="gray"
-                  size="lg"
+                  size={window.innerWidth < 640 ? "sm" : "lg"}
                   variant="outlined"
                   ripple={true}
                   className="text-black hover:bg-gray-300 duration-300 ease-in-out dark:text-white"

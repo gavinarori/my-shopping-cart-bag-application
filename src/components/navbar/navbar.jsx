@@ -31,7 +31,7 @@ const Navbar = () => {
     <>
       <div className="flex justify-around items-center  dark:bg-gray-900 h-full w-full">
         <div>
-        <h2 className="text-2xl font-bold leading-7 text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight dark:text-white">
+        <h2 className="text-2xl font-bold leading-7 sm:text-sm text-gray-900 sm:truncate sm:leading-none sm:font-body sm:tracking-tight dark:text-white">
           HOME SHOP.
         </h2>
         </div>

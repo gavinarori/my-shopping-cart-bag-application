@@ -56,11 +56,11 @@ const dispatch = useDispatch();
   return (
     <div>
       <Card
-        className="w-96 relative  dark:bg-gray-900 h-full w-full"
+        className="lg:w-full sm:w-1/2 relative dark:bg-gray-900 h-full  "
         onMouseEnter={handleIconToggle}
         onMouseLeave={handleIconToggle}
       >
-        <CardHeader floated={false} className="h-96">
+        <CardHeader floated={false} className="lg:h-96 sm:sm:h-3/4 ">
           <img src={img} alt={name} />
           {showIcons && (
             <div className="absolute top-0 bottom-0 left-0 right-0 flex justify-center items-center">
@@ -70,7 +70,7 @@ const dispatch = useDispatch();
                     onClick={handleAddToCart}
                     color="white"
                     buttonType="link"
-                    size="lg"
+                    size={window.innerWidth < 640 ? "sm" : "lg"}
                     rounded={false}
                     iconOnly
                   >
@@ -91,7 +91,7 @@ const dispatch = useDispatch();
                     onClick={handleLike}
                     color="white"
                     buttonType="link"
-                    size="lg"
+                    size={window.innerWidth < 640 ? "sm" : "lg"}
                     rounded={false}
                     iconOnly
                   >
@@ -116,7 +116,7 @@ const dispatch = useDispatch();
         </div>)}
     </CardHeader>
     <CardBody className="text-center  dark:bg-gray-900 h-full w-full">
-          <Typography variant="h4" color="blue-gray" className="mb-2 dark:text-white">
+          <Typography variant="h4" color="blue-gray" className="mb-2 dark:text-white ">
             {name}
           </Typography>
           <Typography color="gray" className="font-medium dark:text-white" textGradient>

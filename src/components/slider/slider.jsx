@@ -60,7 +60,7 @@ const Slider = () => {
       </div>
       <div>
         <button
-          className="absolute top-[50%] right-4 bg-white rounded-full p-2 hover:bg-green-300"
+          className="absolute top-[50%] right-4 sm:right-0 bg-white rounded-full p-2 hover:bg-green-300"
           onClick={() => dispatch(rightSlide(slideActions + 1))}
         >
           <svg
@@ -79,7 +79,7 @@ const Slider = () => {
           </svg>
         </button>
         <button
-          className="absolute top-[50%] left-4 bg-white rounded-full p-2 hover:bg-green-300"
+          className="absolute top-[50%] left-4 sm:left-2 bg-white rounded-full p-2 hover:bg-green-300"
           onClick={() => dispatch(leftSlide(slideActions - 1))}
         >
           <svg

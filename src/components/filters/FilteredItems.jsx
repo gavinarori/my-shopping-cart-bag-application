@@ -37,105 +37,108 @@ const FilteredItems = () => {
           <h1 className="text-gray-600 text-4xl font-inter font-bold tracking-normal leading-none  dark:text-white">
             {type}
           </h1>
-          <div className="flex items-center justify-between py-8 ">
-            <div className="flex items-center">
-              {genderButtons.map((item, index) => {
-                return (
-                  <div key={index}>
-                    <Button
-                      color="gray"
-                      size={window.innerWidth < 640 ? "sm" : "lg"}
-                      variant="outlined"
-                      ripple={true}
-                      className="text-black hover:bg-gray-300 duration-300 ease-in-out mr-4  dark:text-white"
-                      onClick={() => dispatch(filterByGender(item))}
-                    >
-                      {item}
-                    </Button>
-                  </div>
-                );
-              })}
-              <Button
-                color="gray"
-                size={window.innerWidth < 640 ? "sm" : "lg"}
-                variant="outlined"
-                ripple={true}
-                className="text-black hover:bg-gray-300 duration-300 ease-in-out mr-4  dark:text-white"
-                onClick={() => dispatch(sortByPrice())}
-              >
-                High Price
-              </Button>
-              <Menu>
-                <MenuHandler>
-                  <Button
-                    color="gray"
-                    size={window.innerWidth < 640 ? "sm" : "lg"}
-                    variant="outlined"
-                    ripple={true}
-                    className="text-black hover:bg-gray-300 duration-300 ease-in-out mr-4 dark:text-white"
-                  >
-                    Select a color
-                  </Button>
-                </MenuHandler>
-                <MenuList>
-                  {colorButtons.map((item, index) => {
-                    return (
-                      <MenuItem
-                        style={{ color: item }}
-                        key={index}
-                        onClick={() => dispatch(sortByColor(item))}
-                      >
-                        {item}
-                      </MenuItem>
-                    );
-                  })}
-                </MenuList>
-              </Menu>
-              <Menu>
-                <MenuHandler>
-                  <Button
-                    disabled={type === "" || type === "Shoes"}
-                    color="gray"
-                    size={window.innerWidth < 640 ? "sm" : "lg"}
-                    variant="outlined"
-                    ripple={true}
-                    className="text-black hover:bg-gray-300 duration-300 ease-in-out mr-4 dark:text-white"
-                  >
-                    Select a size
-                  </Button>
-                </MenuHandler>
-                <MenuList>
-                  {sizeButtons.map((item, index) => {
-                    return (
-                      <MenuItem
-                        key={index}
-                        onClick={() => dispatch(sortBySize(item))}
-                      >
-                        {item}
-                      </MenuItem>
-                    );
-                  })}
-                </MenuList>
-              </Menu>
-            </div>
-            <div className="pr-14">
-              <Button
-                color="gray"
-                size={window.innerWidth < 640 ? "sm" : "lg"}
-                variant="outlined"
-                ripple={true}
-                className="text-black hover:bg-gray-300 duration-300 ease-in-out mr-4  dark:text-white"
-                onClick={() => dispatch(filterItems(type))}
-              >
-                Clear Filter
-              </Button>
-            </div>
-          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 py-8">
+  <div class="flex justify-between items-center">
+    {genderButtons.map((item, index) => {
+      return (
+        <div key={index}>
+          <Button
+            color="gray"
+            size={window.innerWidth < 640 ? "sm" : "lg"}
+            variant="outlined"
+            ripple={true}
+            className="text-black hover:bg-gray-300 duration-300 ease-in-out mr-4 dark:text-white"
+            onClick={() => dispatch(filterByGender(item))}
+          >
+            {item}
+          </Button>
+        </div>
+      );
+    })}
+  </div>
+  <div class="flex justify-between items-center">
+    <Button
+      color="gray"
+      size={window.innerWidth < 640 ? "sm" : "lg"}
+      variant="outlined"
+      ripple={true}
+      className="text-black hover:bg-gray-300 duration-300 ease-in-out mr-4 dark:text-white"
+      onClick={() => dispatch(sortByPrice())}
+    >
+      High Price
+    </Button>
+    <Menu>
+      <MenuHandler>
+        <Button
+          color="gray"
+          size={window.innerWidth < 640 ? "sm" : "lg"}
+          variant="outlined"
+          ripple={true}
+          className="text-black hover:bg-gray-300 duration-300 ease-in-out mr-4 dark:text-white"
+        >
+          Select a color
+        </Button>
+      </MenuHandler>
+      <MenuList>
+        {colorButtons.map((item, index) => {
+          return (
+            <MenuItem
+              style={{ color: item }}
+              key={index}
+              onClick={() => dispatch(sortByColor(item))}
+            >
+              {item}
+            </MenuItem>
+          );
+        })}
+      </MenuList>
+    </Menu>
+  </div>
+  <div class="flex justify-between items-center">
+    <Menu>
+      <MenuHandler>
+        <Button
+          disabled={type === "" || type === "Shoes"}
+          color="gray"
+          size={window.innerWidth < 640 ? "sm" : "lg"}
+          variant="outlined"
+          ripple={true}
+          className="text-black hover:bg-gray-300 duration-300 ease-in-out mr-4 dark:text-white"
+        >
+          Select a size
+        </Button>
+      </MenuHandler>
+      <MenuList>
+        {sizeButtons.map((item, index) => {
+          return (
+            <MenuItem
+              key={index}
+              onClick={() => dispatch(sortBySize(item))}
+            >
+              {item}
+            </MenuItem>
+          );
+        })}
+      </MenuList>
+    </Menu>
+    <Button
+      color="gray"
+      size={window.innerWidth < 640 ? "sm" : "lg"}
+      variant="outlined"
+      ripple={true}
+      className="text-black hover:bg-gray-300 duration-300 ease-in-out mr-4 dark:text-white"
+      onClick={() => dispatch(filterItems(type))}
+    >
+      Clear Filter
+    </Button>
+  </div>
+</div>
+
         </div>
         {error ? (
           <Error></Error>
         ) : (
-          <div className="grid grid-cols-4 gap-12 justify-items-center py-8 mx-auto max-w-screen-xl sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center py-8 gap-4 mx-auto max-w-7xl dark:bg-gray-900 h-full w-full">
         
             {products
               .filter((product) => product.type === type)

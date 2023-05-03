@@ -16,33 +16,32 @@ const SingleProduct = () => {
   const dispatch = useDispatch();
 
   return (
-    <div className=" dark:bg-gray-900 h-full w-full">
+    <div className="dark:bg-gray-900 h-[667px] ">
       {product
         .filter((product) => product.id === id)
         .map((item, index) => {
           return (
             <div key={index} className="flex justify-center items-center py-10">
-              <div className="pl-44 grow-[2]">
-                <img
-                  className="h-[850px] rounded-lg"
-                  src={item.img}
-                  alt={item.name}
-                ></img>
-              </div>
+            <div class="w-full md:pl-44 md:grow-[2] md:w-[79px]">
+                  <img class="w-auto pl-2 md:h-[500px] lg:rounded-lg"
+                   src={item.img} 
+                   alt={item.name} />
+            </div>
+
               <div className="grow-[3]">
                 <div className="max-w-lg">
                   <h5 className="text-2xl font-inter font-bold tracking-normal leading-none pb-4  dark:text-white">
                     {item.name}
                   </h5>
-                  <p className="text-orange-700 text-xl font-inter font-bold tracking-normal leading-none pb-4  dark:text-white">
+                  <p className="text-orange-700 text-xl font-inter font-bold tracking-normal leading-none pb-4  dark:text-white ">
                     15% OFF
                   </p>
-                  <p className="text-gray-600 text-xl font-inter font-bold tracking-normal leading-none pb-4  dark:text-white">
+                  <p className="text-gray-600 text-xl font-inter font-bold tracking-normal leading-none pb-4  dark:text-white hidden md:block">
                     {item.text}
                   </p>
                   <div className="pb-4">
                     {item.size ? (
-                      <div>
+                      <div className="mx-3 px-5 sm:mx-2 sm:px-3">
                         <label
                           htmlFor="size"
                           className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
@@ -66,7 +65,7 @@ const SingleProduct = () => {
                         </select>
                       </div>
                     ) : (
-                      <div>
+                      <div >
                         <label
                           htmlFor="size"
                           className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
@@ -93,7 +92,7 @@ const SingleProduct = () => {
                     )}
                   </div>
 
-                  <div className="pb-4">
+                  <div className="pb-4 mx-3 px-5 sm:mx-2 sm:px-3">
                     <label
                       htmlFor="color"
                       className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
@@ -119,7 +118,7 @@ const SingleProduct = () => {
                   <Tooltip content="Add to Cart" placement="bottom">
                     <Button
                       color="gray"
-                      size="lg"
+                      size={window.innerWidth < 640 ? "sm" : "lg"}
                       variant="outlined"
                       ripple={true}
                       className=" dark:text-white"
